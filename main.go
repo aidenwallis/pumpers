@@ -8,7 +8,8 @@ func main() {
 	redisClient.connect()
 	go hub.run()
 	go startConnection()
+	go runMainTick()
 
-	log.Info("Starting ResidentSleeper...")
+	log.Info("Starting Pumper...")
 	startServer()
 }

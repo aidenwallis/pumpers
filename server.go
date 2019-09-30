@@ -30,12 +30,11 @@ func startServer() {
 	})
 
 	r.Get("/count", func(w http.ResponseWriter, r *http.Request) {
-		total, day, hour, minute := redisClient.getCounts()
 		count := &CountPayload{
-			Total:  total,
-			Day:    day,
-			Hour:   hour,
-			Minute: minute,
+			Total:  currentTotal,
+			Day:    currentDay,
+			Hour:   currentHour,
+			Minute: currentMinute,
 		}
 		writeJSON(w, http.StatusOK, count)
 	})

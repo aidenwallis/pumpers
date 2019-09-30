@@ -14,6 +14,8 @@ function wsErr(error) {
   reconnectInterval = setInterval(connect, 5000);
 }
 
+var currentStats = { t: 0, h: 0, d: 0, m: 0 };
+
 function connect() {
   if (connected) {
     reconnectInterval = undefined;
@@ -47,7 +49,19 @@ function connect() {
   connection.onmessage = function(event) {
     try {
       var data = JSON.parse(event.data);
-      return updateCounts(data.t, data.d, data.h, data.m);
+      if (data.t !== undefined) {
+        currentStats.t = data.t;
+      }
+      if (data.d !== undefined) {
+        currentStats.d = data.d;
+      }
+      if (data.h !== undefined) {
+        currentStats.h = data.h;
+      }
+      if (data.h !== undefined) {
+        currentStats.h = data.h;
+      }
+      return updateCounts();
     } catch (ex) {
       console.error(ex);
     }
@@ -58,15 +72,16 @@ function getCount() {
   return fetch('/count')
     .then(function(response) { return response.json(); })
     .then(function(data) {
-      return updateCounts(data.t, data.d, data.h, data.m);
+      currentStats = data;
+      return updateCounts();
     });
 }
 
-function updateCounts(total, day, hour, minute) {
-  totalCount.textContent = total;
-  dayCount.textContent = day;
-  hourCount.textContent = hour;
-  minuteCount.textContent = minute;
+function updateCounts() {
+  totalCount.textContent = currentStats.t;
+  dayCount.textContent = currentStats.d;
+  hourCount.textContent = currentStats.h;
+  minuteCount.textContent = currentStats.m;
 }
 
 (function() {
