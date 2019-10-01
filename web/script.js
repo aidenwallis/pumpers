@@ -58,8 +58,8 @@ function connect() {
       if (data.h !== undefined) {
         currentStats.h = data.h;
       }
-      if (data.h !== undefined) {
-        currentStats.h = data.h;
+      if (data.m !== undefined) {
+        currentStats.m = data.m;
       }
       return updateCounts();
     } catch (ex) {
