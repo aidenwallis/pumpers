@@ -38,7 +38,7 @@ func (r *Redis) connect() {
 
 func (r *Redis) getCounts() (int64, int64, int64, int64) {
 	now := time.Now()
-	dayTimestamp := now.Format("2006-01-01")
+	dayTimestamp := now.Format("2006-01-02")
 	hour := now.Hour()
 	min := now.Minute()
 
@@ -69,7 +69,7 @@ func (r *Redis) increment(amount int) (int64, int64, int64, int64) {
 	amount64 := int64(amount)
 
 	now := time.Now()
-	dayTimestamp := now.Format("2006-01-01")
+	dayTimestamp := now.Format("2006-01-02")
 	hour := now.Hour()
 	min := now.Minute()
 
