@@ -4,7 +4,7 @@ import (
 	twitch "github.com/gempir/go-twitch-irc/v2"
 )
 
-const emoteID = "1471337"
+const emoteID = "303636564"
 
 func startConnection() {
 	// connect to twitch anonymously
