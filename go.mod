@@ -10,5 +10,5 @@ require (
 	github.com/onsi/ginkgo v1.8.0 // indirect
 	github.com/onsi/gomega v1.5.0 // indirect
 	github.com/sirupsen/logrus v1.4.2
-	golang.org/x/net v0.0.0-20190611141213-3f473d35a33a // indirect
+	golang.org/x/net v0.7.0 // indirect
 )
